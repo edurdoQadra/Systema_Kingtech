@@ -83,7 +83,7 @@ import {RouterView} from 'vue-router'
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutstwo" aria-expanded="false" aria-controls="collapseLayoutstwo">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
-                                Tinbet version 2
+                                Kingtech
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayoutstwo" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -94,8 +94,12 @@ import {RouterView} from 'vue-router'
                                         <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
                                       Mapa
                                         </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
+                                      Transacciones
+                                        </RouterLink>
                                 </nav>
                             </div>
+                            <div class="sb-sidenav-menu-heading">Integraciones</div>
 
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsfour" aria-expanded="false" aria-controls="collapseLayoutsfour">

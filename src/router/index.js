@@ -15,6 +15,11 @@ const router = createRouter({
             component: ()=> import ('../views/Clientes/Index.vue')
         },
         {
+            path:'/transactions',
+            name:'transactions',
+            component: ()=> import ('../views/Transacciones/Index.vue')
+        },
+        {
             path:'/maptinbet',
             name:'maptinbet',
             component: ()=> import ('../views/Maps/MapTinbet.vue')
