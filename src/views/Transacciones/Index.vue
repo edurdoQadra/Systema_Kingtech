@@ -76,15 +76,27 @@ const filaSeleccionada = ref(false);
 
     const openModalEdit = (title) => {
 
-    const selectedRows = table.value.dt.rows({ selected: true }).data().toArray();
-    const selectedRowsData= selectedRows[0];
+        const selectedRowsCount = table.value.dt.rows({ selected: true }).count();
+        
+        if (selectedRowsCount === 0) {
+            // Mostrar una alerta si no se ha seleccionado ninguna fila
+            show_alert('Debe seleccionar una fila antes de editar', 'error', '');
+            return;
+        }
 
-            clientes.value.Sede = selectedRowsData.Sede;
-            clientes.value.Codigo_sede = selectedRows.Codigo_sede;
-            clientes.value.Ticket = selectedRows.Ticket;
-            clientes.value.Venta = selectedRowsData.Venta; 
-            clientes.value.Utilidad = selectedRowsData.Utilidad;
-            clientes.value.Porcentaje_c_v = selectedRowsData.Porcentaje_c_v;
+        const selectedRowsData = table.value.dt.rows({ selected: true }).data().toArray()[0];
+        
+        if (!selectedRowsData) {
+            // Mostrar una alerta si selectedRowsData es undefined
+            show_alert('No se encontraron datos para la fila seleccionada', 'error', '');
+            return;
+        }
+            formEdit.value.Sede = selectedRowsData.Sede;
+            formEdit.value.Codigo_sede = selectedRowsData.Codigo_sede;
+            formEdit.value.Ticket = selectedRowsData.Ticket;
+            formEdit.value.Venta = selectedRowsData.Venta; 
+            formEdit.value.Utilidad = selectedRowsData.Utilidad;
+            formEdit.value.Porcentaje_c_v = selectedRowsData.Porcentaje_c_v;
 
          modalTitleEdit.value = title;
          showModalEdit.value = true;  
@@ -103,11 +115,13 @@ const filaSeleccionada = ref(false);
 /******************************************* Testear Nuevamente **************************************************** */
 /******************************************************************************************************************* */
 
-    const handleRowSelectionDelete = (event) => {
-        const selectedRows = table.value.dt.rows({ selected: true }).count();
-        // Si hay filas seleccionadas, establecer filaSeleccionada en true
-        filaSeleccionada.value = selectedRows > 0;
-    };
+const handleRowSelectionDelete = (event) => {
+
+const selectedRows = table.value.dt.rows({ selected: true }).count();
+
+// Si hay filas seleccionadas, establecer filaSeleccionada en true
+filaSeleccionada.value = selectedRows > 0;
+};
 
     /**************************************************************************************************************** */
 /******************************************Testear Nuevamente**************************************************** */
@@ -250,13 +264,13 @@ const filaSeleccionada = ref(false);
             <div class="col-md-12">
                 <div class="d-grid col-12 mx-auto">
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <button  class="btn btn-lg"  @click="openModal('Crear')">
-                        <i class="fa-solid fa-circle-plus mx-1"></i>Agregar
+                        <button v-if="!filaSeleccionada" class="btn btn-lg" @click="openModal('Crear')">
+                            <i class="fa-solid fa-circle-plus mx-1"></i>Agregar
                     </button>
                         <button class="btn btn-lg"  @click="openModalEdit('Editar')" >
                             <i class="fa-solid fa-circle-plus mx-1"></i>Editar
                         </button>
-                        <button class="btn btn-lg" >
+                        <button class="btn btn-lg" @click="deleteCliente()" >
                             <i class="fa-solid fa-circle-plus mx-1"></i> Borrar
                         </button>
                     </div>
@@ -376,31 +390,31 @@ const filaSeleccionada = ref(false);
                     <div class="col">
                         <div class="mb-3">
                             <label for="sede" class="form-label">SEDE</label>
-                            <input type="text" id="sede" class="form-control" v-model="clientes.Sede">
+                            <input type="text" id="sede" class="form-control" v-model="formEdit.Sede">
                         </div>
                         <div class="mb-3">
                             <label for="utilidad" class="form-label">UTILIDAD</label>
-                            <input type="text" id="utilidad" class="form-control" v-model="clientes.Utilidad">
+                            <input type="text" id="utilidad" class="form-control" v-model="formEdit.Utilidad">
                         </div>                        
                     </div>
                     <div class="col">
                         <div class="mb-3">
                             <label for="codigo_sede" class="form-label">CODIGO</label>
-                            <input type="text" id="codigo_sede" class="form-control" v-model="clientes.Codigo_sede">
+                            <input type="text" id="codigo_sede" class="form-control" v-model="formEdit.Codigo_sede">
                         </div>
                         <div class="mb-3"> 
                             <label for="ticket" class="form-label">TICKET</label>
-                            <input type="text" id="ticket" class="form-control" v-model="clientes.Ticket">
+                            <input type="text" id="ticket" class="form-control" v-model="formEdit.Ticket">
                         </div>
                     </div>
                     <div class="col">
                         <div class="mb-3">
                             <label for="venta" class="form-label">VENTA</label>
-                            <input type="text" id="venta" class="form-control" v-model="clientes.Venta">
+                            <input type="text" id="venta" class="form-control" v-model="formEdit.Venta">
                         </div>                      
                         <div class="mb-3">
                             <label for="porcentaje_c_v" class="form-label">PORCENTAJE </label>
-                            <input type="text" id="porcentaje_c_v" class="form-control" v-model="clientes.Porcentaje_c_v">
+                            <input type="text" id="porcentaje_c_v" class="form-control" v-model="formEdit.Porcentaje_c_v">
                         </div>
                     </div>                              
                 </div>

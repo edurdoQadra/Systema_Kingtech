@@ -36,57 +36,36 @@ import {RouterView} from 'vue-router'
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Clientes Kingtech</div>
-                            <!-- 
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon">
-                                    <i class="fa-solid fa-people-group"></i>
-                                </div>
-                                <RouterLink class="nav-link mx-0" :to ="{path:'/list'}">
-                                      Tinbet
-                                </RouterLink>
-                            </a> -->
-                            <!-- <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon">
-                                    <i class="fa-solid fa-people-group"></i>
-                                </div>
-                                <RouterLink class="nav-link mx-0" :to ="{path:'/list'}">
-                                      Tinbet
-                                </RouterLink>
-                            </a> -->                            
-                            <!-- <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon">
-                                    <i class="fa-solid fa-people-group"></i>
-                                </div>
-                                <RouterLink class="nav-link mx-0" :to ="{path:'/list'}">
-                                      Betgana
-                                </RouterLink>
-                            </a> 
-                        -->
-                            <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
-                            Tinbet version 1
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/list'}">
-                                      Lista
-                                        </RouterLink>
-                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
-                                      Mapa
-                                        </RouterLink>
-                                        
-                                </nav>
-                            </div> -->
+                            <div class="sb-sidenav-menu-heading">Usuarios Kingtech</div>
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutstwo" aria-expanded="false" aria-controls="collapseLayoutstwo">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsfive" aria-expanded="false" aria-controls="collapseLayoutsfive">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
-                                Kingtech
+                                Usuarios
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayoutstwo" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayoutsfive" aria-labelledby="headingFive" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/listbet'}">
+                                      Usuarios
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
+                                      Roles
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
+                                      Permisos
+                                        </RouterLink>
+                                </nav>
+                            </div>
+                            <!--  -->
+                            <div class="sb-sidenav-menu-heading">Utilidades</div>
+
+                            <!--  -->
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsSix" aria-expanded="false" aria-controls="collapseLayoutsSix">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-headset"></i></div>
+                                ATC
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayoutsSix" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                         <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/listbet'}">
                                       Lista
@@ -99,49 +78,132 @@ import {RouterView} from 'vue-router'
                                         </RouterLink>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Integraciones</div>
-
-
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsfour" aria-expanded="false" aria-controls="collapseLayoutsfour">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
-                                    Power Bi 
+                            <!--  -->
+                            <!--  -->
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsSeven" aria-expanded="false" aria-controls="collapseLayoutsSeven">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-coins"></i></div>
+                                Contabilidad
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayoutsfour" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayoutsSeven" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/powerbi'}">
-                                      Tinbet
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/listbet'}">
+                                      Lista
                                         </RouterLink>
-                                       
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
+                                      Mapa
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
+                                      Transacciones
+                                        </RouterLink>
                                 </nav>
                             </div>
+                            <!--  -->
+                            <div class="sb-sidenav-menu-heading">Soporte Técnico</div>
 
-                            <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsThree" aria-expanded="false" aria-controls="collapseLayoutsThree">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                            <!--  -->
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsEight" aria-expanded="false" aria-controls="collapseLayoutsEight">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                                Soporte
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayoutsThree" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseLayoutsEight" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/listbet'}">
+                                      Lista
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
+                                      Mapa
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
+                                      Transacciones
+                                        </RouterLink>
                                 </nav>
-                            </div> -->
+                            </div>
+                            <!--  -->
+                            <div class="sb-sidenav-menu-heading">Locales</div>
 
+                            <!--  -->
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsNine" aria-expanded="false" aria-controls="collapseLayoutsNine">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location"></i></div>
+                                Locales Kingtech
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayoutsNine" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/listbet'}">
+                                      Tinbet
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
+                                      Betgana
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
+                                      Tu Lotto
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
+                                     Hipica
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
+                                      American Bet
+                                        </RouterLink>
+                                </nav>
+                            </div>
+                            <!--  -->
+                            <!--  -->
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsTen" aria-expanded="false" aria-controls="collapseLayoutsTen">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
+                                Kingtech
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayoutsTen" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/listbet'}">
+                                      Lista
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/mapbetgana'}">
+                                      Mapa
+                                        </RouterLink>
+                                        <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
+                                      Transacciones
+                                        </RouterLink>
+                                </nav>
+                            </div>
+                            <!--  -->
+                            <!--  -->
                             <div class="sb-sidenav-menu-heading">Reportes</div>
-                            <a class="nav-link" href="charts.html">
+
+                            <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/transactions'}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
+                                      Transacciones
+                            </RouterLink>
+
+                                <a class="nav-link" href="charts.html">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                    Charts
+                                </a>
+                               
+
+                                <div class="sb-sidenav-menu-heading">Integraciones</div>
+                                    <RouterLink class="nav-link mx-0 nav-link" :to ="{path:'/powerbi'}">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                            Transacciones
+                                    </RouterLink>
+                                    <!-- <a class="nav-link" href="charts.html">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                        Charts
+                                    </a> -->
+                                    <!-- <a class="nav-link" href="tables.html">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                        Tables
+                                    </a> -->                                
+                                </div>              
+                            
+                            
+                        <!--  -->                                                   
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Sistema Clientes Kingtech
+                        <div class="small">Logged in as: {{  }}</div>
+                        Sistema  Kingtech
                     </div>
                 </nav>
             </div>
@@ -699,16 +761,17 @@ import {RouterView} from 'vue-router'
                                 </table>
                             </div>
                         </div> -->
+                    
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div class="text-muted">Copyright &copy; Kingtech  2024</div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="#">Politicas de Privacidad</a>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <a href="#">Terminos &amp; Condiciones</a>
                             </div>
                         </div>
                     </div>

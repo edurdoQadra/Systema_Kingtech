@@ -51,7 +51,7 @@
         TELEFONO: '',
         ESTADO_LOCAL: ''
     });
-
+    //---------------------------------- Circa Money ---------------------------------------------//
     const formEdit = ref({
     ADMINISTRADOR: '',
     REPORTES: '',
@@ -111,58 +111,34 @@
 /******************************************Testear Nuevamente**************************************************** */
 /**************************************************************************************************************** */
 
-//     const deleteCliente = () => {
-//     const selectedRows = table.value.dt.rows({ selected: true }).data().toArray();
-//     if (selectedRows.length > 0) {
-//         const id = selectedRows[0].id;
-//         const name = selectedRows[0].ADMINISTRADOR;
-//         const alert = Swal.mixin({ buttonStyling: true });
-//         alert.fire({
-//             title: '¿Está seguro de querer borrar el registro ' + name + '?',
-//             icon: 'question',
-//             showCancelButton: true,
-//             confirmButtonText: '<i class="fa fa-solid fa-check"></i> Sí, borrar',
-//             cancelButtonText: '<i class="fa fa-solid fa-check"></i> Cancelar'
-//         }).then((result) => {
-//             if (result.isConfirmed) {
-//                 confirmation(name, 'http://localhost:8000/api/v1/delete/' + id, '/listbet');
-//             }
-//         });
-//     } else {
-//         let desc = 'Debe seleccionar una fila antes de poder borrarla';
-//         show_alert(desc, 'error', '');
-//     }
-// };
-        const deleteCliente = () => {
-            const selectedRows = table.value.dt.rows({ selected: true }).data().toArray();
-            if (selectedRows.length > 0) {
-                const id = selectedRows[0].id;
-                const name = selectedRows[0].ADMINISTRADOR;
-                const alert = Swal.mixin({ buttonStyling: true });
-                alert.fire({
-                    title: '¿Está seguro de querer borrar el registro ' + name + '?',
-                    icon: 'question',
-                    showCancelButton: true,
-                    confirmButtonText: '<i class="fa fa-solid fa-check"></i> Sí, borrar',
-                    cancelButtonText: '<i class="fa fa-solid fa-check"></i> Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        confirmation(name, 'http://localhost:8000/api/v1/delete/' + id, '/listbet');
-                    }
-                });
-            } else {
-                let desc = 'Debe seleccionar una fila antes de poder borrarla';
-                show_alert(desc, 'error', '');
-            }
-        };
-
+    const deleteCliente = () => {
+        const selectedRows = table.value.dt.rows({ selected: true }).data().toArray();
+        if (selectedRows.length > 0) {
+            const id = selectedRows[0].id;
+            const name = selectedRows[0].ADMINISTRADOR;
+            const alert = Swal.mixin({ buttonStyling: true });
+            alert.fire({
+                title: '¿Está seguro de querer borrar el registro ' + name + '?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: '<i class="fa fa-solid fa-check"></i> Sí, borrar',
+                cancelButtonText: '<i class="fa fa-solid fa-check"></i> Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    confirmation(name, 'http://localhost:8000/api/v1/delete/' + id, '/listbet');
+                }
+            });
+        } else {
+            let desc = 'Debe seleccionar una fila antes de poder borrarla';
+            show_alert(desc, 'error', '');
+        }
+    };
 
 /**************************************************************************************************************** */
 /******************************************Testear Nuevamente**************************************************** */
 /**************************************************************************************************************** */
 
-
-const openModal = (title) => 
+    const openModal = (title) => 
     {
         clientes.value.ADMINISTRADOR='';
         clientes.value.REPORTES= "";
@@ -185,41 +161,50 @@ const openModal = (title) =>
         console.log('mensjae de exito');
             
     }
-
     
 /**************************************************************************************************************** */
 /******************************************Testear Nuevamente**************************************************** */
 /**************************************************************************************************************** */
 
-
     const openModalEdit = (title) => {
-        const selectedRows = table.value.dt.rows({ selected: true }).data().toArray();
-        const selectedRowsData= selectedRows[0];
-        
-            clientes.value.ADMINISTRADOR = selectedRowsData.ADMINISTRADOR;
-            clientes.value.REPORTES = selectedRows.REPORTES;
-            clientes.value.DEPARTAMENTO = selectedRows.DEPARTAMENTO;
-            clientes.value.DISTRITO = selectedRowsData.DISTRITO; 
-            clientes.value.PROVINCIA = selectedRowsData.ADMINISTRADOR;
-            clientes.value.DISTRITO = selectedRowsData.DISTRITO;
-            clientes.value.DIRECCION = selectedRowsData.DIRECCION;
-            clientes.value.REFERENCIA = selectedRowsData.REFERENCIA; 
-            clientes.value.ASOCIADO = selectedRowsData.ASOCIADO;
-            clientes.value.DNI = selectedRowsData.DNI;
-            clientes.value.NUMERO = selectedRowsData.NUMERO;
-            clientes.value.RAZON_SOCIAL = selectedRowsData.RAZON_SOCIAL; 
-            clientes.value.RUC = selectedRowsData.RUC;
-            clientes.value.PORCENTAJE_EMPRESA = selectedRowsData.PORCENTAJE_EMPRESA;
-            clientes.value.CORREO = selectedRowsData.CORREO;
-            clientes.value.TELEFONO = selectedRowsData.TELEFONO;
-            clientes.value.ESTADO_LOCAL= selectedRowsData.ESTADO_LOCAL
-            console.log(clientes);
 
-        modalTitleEdit.value = title;
-        showModalEdit.value = true;  
-        console.log(showModalEdit);
-    }
+        const selectedRowsCount = table.value.dt.rows({ selected: true }).count();                
+        if (selectedRowsCount === 0) {
+            // Mostrar una alerta si no se ha seleccionado ninguna fila
+            show_alert('Debe seleccionar una fila antes de editar', 'error', '');
+            return;
+        }
+        const selectedRowsData = table.value.dt.rows({ selected: true }).data().toArray()[0];
+        
+        if (!selectedRowsData) {
+            // Mostrar una alerta si selectedRowsData es undefined
+            show_alert('No se encontraron datos para la fila seleccionada', 'error', '');
+            return;
+        }
+
+    clientes.value.ADMINISTRADOR = selectedRowsData.ADMINISTRADOR;
+    clientes.value.REPORTES = selectedRowsData.REPORTES;
+    clientes.value.DEPARTAMENTO = selectedRowsData.DEPARTAMENTO;
+    clientes.value.DISTRITO = selectedRowsData.DISTRITO; 
+    clientes.value.PROVINCIA = selectedRowsData.ADMINISTRADOR;
+    clientes.value.DISTRITO = selectedRowsData.DISTRITO;
+    clientes.value.DIRECCION = selectedRowsData.DIRECCION;
+    clientes.value.REFERENCIA = selectedRowsData.REFERENCIA; 
+    clientes.value.ASOCIADO = selectedRowsData.ASOCIADO;
+    clientes.value.DNI = selectedRowsData.DNI;
+    clientes.value.NUMERO = selectedRowsData.NUMERO;
+    clientes.value.RAZON_SOCIAL = selectedRowsData.RAZON_SOCIAL; 
+    clientes.value.RUC = selectedRowsData.RUC;
+    clientes.value.PORCENTAJE_EMPRESA = selectedRowsData.PORCENTAJE_EMPRESA;
+    clientes.value.CORREO = selectedRowsData.CORREO;
+    clientes.value.TELEFONO = selectedRowsData.TELEFONO;
+    clientes.value.ESTADO_LOCAL= selectedRowsData.ESTADO_LOCAL
+    console.log(clientes);
+    modalTitleEdit.value = title;
+    showModalEdit.value = true;  
     
+    }
+
 /**************************************************************************************************************** */
 /******************************************Testear Nuevamente**************************************************** */
 /**************************************************************************************************************** */
@@ -247,11 +232,10 @@ const openModal = (title) =>
 /**************************************************************************************************************** */
 /******************************************Testear Nuevamente**************************************************** */
 /**************************************************************************************************************** */
-    const updateModal = () => {
+    const update = () => {
+
         // Obtenemos las filas seleccionadas en la tabla
-        
-        const selectedRows = table.value.dt.rows({ selected: true }).data().toArray();
-        
+        const selectedRows = table.value.dt.rows({ selected: true }).data().toArray();        
         // Verificamos si se ha seleccionado al menos una fila
 
         if (selectedRows.length > 0) {
@@ -274,10 +258,9 @@ const openModal = (title) =>
             formEdit.value.CORREO = selectedRowData.CORREO;
             formEdit.value.TELEFONO = selectedRowData.TELEFONO;
             formEdit.value.ESTADO_LOCAL= selectedRowData.ESTADO_LOCAL
-
             console.log(formEdit);
 
-            sendRequest('PUT',formEdit.value,('http://localhost:8000/api/v1/client/'+id),'');
+          //  sendRequest('PUT',formEdit.value,('http://localhost:8000/api/v1/client/'+id),'');
 
         } else {
             // Si no se ha seleccionado ninguna fila, mostramos un mensaje de advertencia o manejo de la situación
@@ -332,25 +315,26 @@ const openModal = (title) =>
 
 
 </script>
-<template>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="d-grid col-12 mx-auto">
-                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                        <button v-if="!filaSeleccionada" class="btn btn-lg" @click="openModal('Crear')">
-                        <i class="fa-solid fa-circle-plus mx-1"></i>Agregar
+<template>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-grid col-12 mx-auto">
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <button v-if="!filaSeleccionada" class="btn btn-lg" @click="openModal('Crear')">
+                    <i class="fa-solid fa-circle-plus mx-1"></i>Agregar
+                </button>
+                    <button class="btn btn-lg" @click="openModalEdit(Editar)">
+                        <i class="fa-solid fa-circle-plus mx-1"></i>Editar
                     </button>
-                        <button class="btn btn-lg" @click="openModalEdit(Editar)">
-                            <i class="fa-solid fa-circle-plus mx-1"></i>Editar
-                        </button>
-                        <button class="btn btn-lg" @click="deleteCliente()">
-                            <i class="fa-solid fa-circle-plus mx-1"></i> Borrar
-                        </button>
-                    </div>
+                    <button class="btn btn-lg" @click="deleteCliente()">
+                        <i class="fa-solid fa-circle-plus mx-1"></i> Borrar
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
 
     <div class="row border border-primary mt-3">
         <!--  -->
@@ -517,7 +501,7 @@ const openModal = (title) =>
                 <button type="button" class="btn-close" @click="showModalEdit = false"></button>
             </div>
             <div class="modal-body">
-                <form @submit.prevent="updateModal">
+                <form @submit.prevent="update">
                     <div class="row">
                     <div class="col">
                     <div class="mb-3">
@@ -642,25 +626,26 @@ const openModal = (title) =>
 
 
 <style>
-/* Estilos para alinear el componente de búsqueda a la derecha */
-.dt-search {
-    float: right; /* Colocar el componente a la derecha */
-    margin-right: 20px;
-    margin-top: 1rem; /* Ajustar el margen derecho según sea necesario */
 
-    margin-bottom: 1rem; /* Ajustar el margen derecho según sea necesario */
-}
+        /* Estilos para alinear el componente de búsqueda a la derecha */
+        .dt-search {
+            float: right; /* Colocar el componente a la derecha */
+            margin-right: 20px;
+            margin-top: 1rem; /* Ajustar el margen derecho según sea necesario */
 
-/* Estilos para alinear los botones de paginación a la derecha */
-.dt-paging {
-    text-align: center; /* Alinear los botones a la derecha */
-    margin-top: 10px; /* Ajustar el margen superior según sea necesario */
-}
+            margin-bottom: 1rem; /* Ajustar el margen derecho según sea necesario */
+        }
 
-/* Estilos para los botones de paginación */
-.dt-paging-button {
-    margin-left: 5px; /* Añadir un pequeño espacio entre los botones */
-    /* Otros estilos según sea necesario */
-}
+        /* Estilos para alinear los botones de paginación a la derecha */
+        .dt-paging {
+            text-align: center; /* Alinear los botones a la derecha */
+            margin-top: 10px; /* Ajustar el margen superior según sea necesario */
+        }
+
+        /* Estilos para los botones de paginación */
+        .dt-paging-button {
+            margin-left: 5px; /* Añadir un pequeño espacio entre los botones */
+            /* Otros estilos según sea necesario */
+        }
 
 </style>
